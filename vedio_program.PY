@@ -73,7 +73,7 @@ def main():
 				p2_y = 3*zy_change
 
 		show_player(p1_x,p1_y,p2_x,p2_y,p1_color,p2_color)
-		crash(zombie_list,bullet_list)
+		zombie_list,bullet_list = crash(zombie_list,bullet_list)
 		show_zombie(zombie_list)
 		show_bullet(bullet_list)
 

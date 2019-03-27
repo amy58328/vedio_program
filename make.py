@@ -22,7 +22,7 @@ def make_zombie(y,color,who):
 		zombie.life = 1
 	
 	elif who == 2:
-		zombie.x = 880 # 1540 
+		zombie.x = weight - 60 # 1540 
 		zombie.y = y
 		zombie.who = who
 		zombie.color = color
@@ -44,7 +44,7 @@ def make_bullet(y,color,who):
 		bullet.life = 1
 	
 	elif who == 2:
-		bullet.x = 880 # 1540 
+		bullet.x = weight - 60 # 1540 
 		bullet.y = y
 		bullet.who = who
 		bullet.color = color
@@ -77,3 +77,4 @@ def crash(zombie_list,bullet_list):
 					zombie_list.remove(zombie)
 				if bullet.life == 0 :
 					bullet_list.remove(bullet)
+	return zombie_list,bullet_list
