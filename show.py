@@ -3,20 +3,10 @@ from setting import *
 def time_show(minute,second):
 	minute = str(minute)
 	second = str(second)
-	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',50)
-	TextSurf, TextRect = text_objects(minute, largeText)
-	TextRect.center = ((weight/2 - 45),(height - player_size + 50))
-	screen.blit(TextSurf, TextRect)
 
-	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',50)
-	TextSurf, TextRect = text_objects(":", largeText)
-	TextRect.center = ((weight/2 - 15),(height - player_size + 50))
-	screen.blit(TextSurf, TextRect)
-
-	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',50)
-	TextSurf, TextRect = text_objects(second, largeText)
-	TextRect.center = ((weight/2 + 15),(height - player_size + 50))
-	screen.blit(TextSurf, TextRect)
+	message_display(minute,50,red,(weight/2 - 45),(height - player_size + 50))
+	message_display(":",50,red,(weight/2 - 15),(height - player_size + 50))
+	message_display(second,50,red,(weight/2 + 15),(height - player_size + 50))
 
 
 

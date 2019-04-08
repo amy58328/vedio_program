@@ -1,6 +1,7 @@
 import pygame
 import time
 
+
 pygame.init()
 
 height = 700 	#改930
@@ -26,6 +27,7 @@ bright_yellow = (255,226,0)
 
 clock_my = 0
 
+# file = open("text.txt","a")
 
 screen = pygame.display.set_mode((weight,height))
 pygame.display.set_caption("Zombie Kolor")
@@ -94,32 +96,35 @@ startBackground = pygame.transform.scale(startBackground,(weight,height))
 instructionBackground = pygame.image.load('instruction.jpg')  #遊戲介紹的背景
 instructionBackground = pygame.transform.scale(instructionBackground,(weight,height))
 
-def text_objects(text, font):
-	textSurface = font.render(text, True, red)
+second = 0
+minute = 0
+
+def text_objects(text, font,color):
+	textSurface = font.render(text, True, color)
 	return textSurface, textSurface.get_rect()
  
-def message_display(text):
-	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',115)
-	TextSurf, TextRect = text_objects(text, largeText)
-	TextRect.center = ((weight/2),(height/2))
+def message_display(text,size,color,we,he):
+	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',size)
+	TextSurf, TextRect = text_objects(text, largeText,color)
+	TextRect.center = ((we),(he))
 	screen.blit(TextSurf, TextRect)
 	
-def button(msg,x,y,w,h,ic,ac,action=None):
-	mouse = pygame.mouse.get_pos()
-	click = pygame.mouse.get_pressed()
-	print(click)
-	if x+w > mouse[0] > x and y+h > mouse[1] > y:
-		pygame.draw.rect(screen, ac,(x,y,w,h))
+# def button(msg,x,y,w,h,ic,ac,action=None):
+# 	mouse = pygame.mouse.get_pos()
+# 	click = pygame.mouse.get_pressed()
+# 	print(click)
+# 	if x+w > mouse[0] > x and y+h > mouse[1] > y:
+# 		pygame.draw.rect(screen, ac,(x,y,w,h))
 
-		if click[0] == 1 and action != None:
-			action()         
-	else:
-		pygame.draw.rect(screen, ic,(x,y,w,h))
+# 		if click[0] == 1 and action != None:
+# 			action()         
+# 	else:
+# 		pygame.draw.rect(screen, ic,(x,y,w,h))
 
-	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',80)
-	TextSurf, TextRect = text_objects(msg, largeText)
-	TextRect.center = ((x+w/2),(y+h/2))
-	screen.blit(TextSurf, TextRect)
+# 	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',80)
+# 	TextSurf, TextRect = text_objects(msg, largeText)
+# 	TextRect.center = ((x+w/2),(y+h/2))
+# 	screen.blit(TextSurf, TextRect)
 
 
 # def action():
@@ -198,7 +203,4 @@ def reset():
 
 	zombie_list = []
 	bullet_list = []
-
-	minute = 3
-	second = 00
 	return p1,p2

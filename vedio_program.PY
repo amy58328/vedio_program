@@ -4,14 +4,16 @@ import random
 from setting import *
 from show import *
 from make import *
+from read_name import * 
 
 pygame.init()
 
 clock = pygame.time.Clock()
 
+
 def game_intro():
 
-	intro = True
+	intro = True 
 
 	while intro:
 		for event in pygame.event.get():
@@ -25,8 +27,13 @@ def game_intro():
 		###按鈕###
 
 		#button("Play",725,300,200,85,green,bright_green,main)
-		button("Quit",weight/2-75,height-430,200,85,red,bright_red,quitgame)
-		button("Instructions",weight/2-75,height-330,200,85,orange,bright_yellow,ins)
+		into = button("Quit",weight/2-75,height-430,200,85,red,bright_red)
+		if into == 1:
+			quitgame()
+		
+		into = button("Instructions",weight/2-75,height-330,200,85,orange,bright_yellow)
+		if into == 1:
+			ins()
 
 		##########
 
@@ -44,8 +51,12 @@ def ins():
 				quit()
 					
 		screen.blit(instructionBackground,(0,0))
-		button("Back",55,height - 100,200,85,red,bright_red,game_intro)
-		button("start game",weight - 155,height - 100,200,85,red,bright_red,main)
+		into = button("Back",55,height - 100,200,85,red,bright_red)
+		if into == 1:
+			game_intro()
+		into = button("start game",weight - 155,height - 100,200,85,red,bright_red)
+		if into == 1:
+			main()
 		pygame.display.update()
 		clock.tick(15) 
 
@@ -54,35 +65,44 @@ def quitgame():
 	quit()   
 	
 
-def win(win) :
+def win(mm,ss,win) :
 	if win == 1:
 		screen.blit(p1win,(0,0))
-		button("reset",420,600,200,130,(153,204,204),(204,255,204),action)
+		into = button("reset",120,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			action()
+			main()
+		into = button("enter",720,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			enter_name(mm,ss)
+			rank()
+		into = button("quite",420,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			quitgame()
+
 	elif win == 2:
 		screen.blit(p2win,(0,0))
-		button("reset",420,600,200,130,(153,204,204),(204,255,204),action)
-def action():
-	cc = False
-	n=0
-	while not cc :
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT :
-				c = True
-		screen.fill(blue)
-		message_display("reseting ... ")
-		n += 1
-		if n >200 :
-			cc = True
-		pygame.display.update()
-	main()
+		into = button("reset",120,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			action()
+			main()
+		into = button("enter",720,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			enter_name(mm,ss)
+			rank()
+		into = button("quite",420,600,200,130,(153,204,204),(204,255,204))
+		if into == 1:
+			quitgame()
+
 
 def main():
-	global p1,p2,clock_z,zombie_list,bullet_list
+	global p1,p2,clock_z,zombie_list,bullet_list,second,minute
 
 	crashed = False
 	
 	coco = 0
 	clock_z = 0 
+	ww = 0 
 	p1,p2 = reset()
 	zombie_list.clear()
 	bullet_list.clear()
@@ -165,10 +185,18 @@ def main():
 		show_bullet(bullet_list)
 		time_show(minute,second)
 
-		if p1.live == 0 :
-			win(2)
-		elif p2.live == 0:
-			win(1)
+		if p1.live == 0 :	
+			if ww == 0:
+				mm = minute
+				ss = second
+				ww = 1
+			win(mm,ss,2)
+		elif p2.live == 0 :	
+			if ww == 0:
+				mm = minute
+				ss = second
+				ww = 1
+			win(mm,ss,1)
 
 
 
@@ -178,9 +206,8 @@ def main():
 	pygame.quit()
 		
 
-game_intro()
 #game_loop()
-# if __name__ == "__main__":
-#   main()
-pygame.quit()
-quit()
+if __name__ == "__main__":
+	game_intro()
+	pygame.quit()
+	quit()

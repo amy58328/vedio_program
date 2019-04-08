@@ -3,8 +3,24 @@ from setting import *
 import time
 import random
 import datetime
+from vedio_program import *
 
 random.seed(datetime.datetime.now())
+ 
+def button(msg,x,y,w,h,ic,ac):
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+	if x+w > mouse[0] > x and y+h > mouse[1] > y:
+		pygame.draw.rect(screen, ac,(x,y,w,h))
+
+		if click[0] == 1 and action != None:
+			# action()
+			return 1         
+	else:
+		pygame.draw.rect(screen, ic,(x,y,w,h))
+
+	message_display(msg,80,red,(x+w/2),(y+h/2))
+	return 0 
 
 
 def color_set(color,seat,where):
@@ -130,12 +146,3 @@ def crash(zombie_list,bullet_list,p1,p2):
 				zombie.life = 0
 
 	return zombie_list,bullet_list,p1,p2
-
-# def win(win) :
-# 	screen.fill(black)
-# 	if win == 1:
-# 		message_display("player1 is win")
-# 		button("reset",225,450,200,130,red,blue,action)
-# 	elif win == 2:
-# 		message_display("player2 is win")
-# 		button("reset",225,450,200,130,red,blue,action)
