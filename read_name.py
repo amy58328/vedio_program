@@ -14,8 +14,8 @@ def action():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT :
 				c = True
-		screen.fill(blue)
-		message_display("reseting ... ",115,red,weight/2,height/2)
+		screen.blit(resetBackground,(0,0))
+		#message_display("reseting ... ",115,red,weight/2,height/2)
 		n += 1
 		if n >200 :
 			cc = True
@@ -119,6 +119,7 @@ def rank():
 	file = open("text.txt","r")
 	mes = file.readlines()
 
+
 	name = []
 	minute = []
 	second = []
@@ -132,11 +133,11 @@ def rank():
 	for i in range(0,len(second)-1):
 		for j in range(i+1,len(second)):
 			if minute[i] == minute[j]:
-				if second[i] > second[j]:
+				if second[i] < second[j]:
 					name[i] ,name[j] = name[j] , name[i]
 					minute[i] , minute[j] = minute[j] , minute[i]
 					second[i] , second[j] = second[j] , second[i]
-			if minute[i] > minute[j]:
+			if minute[i] < minute[j]:
 				name[i] ,name[j] = name[j] , name[i]
 				minute[i] , minute[j] = minute[j] , minute[i]
 				second[i] , second[j] = second[j] , second[i]

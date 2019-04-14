@@ -7,7 +7,7 @@ from vedio_program import *
 
 random.seed(datetime.datetime.now())
  
-def button(msg,x,y,w,h,ic,ac):
+def button(msg,x,y,w,h,ic,ac,sizer):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	if x+w > mouse[0] > x and y+h > mouse[1] > y:
@@ -19,7 +19,7 @@ def button(msg,x,y,w,h,ic,ac):
 	else:
 		pygame.draw.rect(screen, ic,(x,y,w,h))
 
-	message_display(msg,80,red,(x+w/2),(y+h/2))
+	message_display(msg,sizer,red,(x+w/2),(y+h/2))
 	return 0 
 
 
@@ -46,34 +46,39 @@ def color_set(color,seat,where):
 			seat = 1
 	return color,seat
 
-def make_zombie():
+def make_zombie(who):
 	zombie = Zombie()
-	who = random.randrange(1,100)
 	i = random.randrange(0,4)
 	cc = random.randrange(0,3)
-	if who % 2 == 1:
+	if who == 1:
 		zombie.x = 0
 		zombie.y = i*zy_change
 		zombie.who = 1
 		if cc == 0:
 			zombie.color = red
+			zombie.speed = 3
 		elif cc == 1:
 			zombie.color = yellow
+			zombie.speed = 3.5
 		elif cc == 2:
 			zombie.color = blue
+			zombie.speed = 5
 		zombie.life = 1
 	
-	elif who % 2  == 0:
+	elif who  == 2:
 		zombie.x = weight - 60 # 1540 
 		i = random.randrange(0,4)
 		zombie.y = i * zy_change
 		zombie.who = 2
 		if cc == 0:
 			zombie.color = red
+			zombie.speed = 3
 		elif cc == 1:
 			zombie.color = yellow
+			zombie.speed = 3.5
 		elif cc == 2:
 			zombie.color = blue
+			zombie.speed = 5
 		zombie.life = 1
 
 	return zombie
@@ -89,7 +94,7 @@ def make_bullet(y,color,who):
 		bullet.life = 1
 	
 	elif who == 2:
-		bullet.x = weight - 60 # 1540 
+		bullet.x = weight - bx_change # 1540 
 		bullet.y = y
 		bullet.who = who
 		bullet.color = color

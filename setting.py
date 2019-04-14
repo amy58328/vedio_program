@@ -4,15 +4,19 @@ import time
 
 pygame.init()
 
-height = 700 	#改930
-weight = 1000 	#改1600
+height = 930 	#改930
+weight = 1600 	#改1600
 bg = (0,0,0)
 black = (0,0,0)
+pink = (218,112,214)
+bright_pink = (255,130,255)
+dark_blue = (0,130,255)
 
-zy_change = 140 #改180
-zx_change = 120 #160
-bx_change = 175 #250
-by_change = 135 # 200
+
+zy_change = 180 #改180
+zx_change = 160 #160
+bx_change = 250 #250
+by_change = 200 # 200
 player_size = 100 # 200
 red = (255,0,0)
 blue = (0,0,255)
@@ -21,10 +25,9 @@ yellow = (255,255,0)
 green = (0,200,0)
 orange = (255,176,0)
 
-bright_red = (200,0,0)
+red_dark = (200,0,0)
 bright_green = (0,255,0)
 bright_yellow = (255,226,0)
-
 clock_my = 0
 
 # file = open("text.txt","a")
@@ -50,11 +53,8 @@ yellow_bullet2 = pygame.image.load("yellow_bullet2.png")
 red_bullet2 = pygame.image.load("red_bullet2.png")
 
 p1_red = pygame.image.load("p1_r.png") 
-p1_yellow = pygame.image.load("p1_y.png")
-p1_blue = pygame.image.load("p1_b.png")
 p2_red = pygame.image.load("p2_r.png")
-p2_yellow = pygame.image.load("p2_y.png")
-p2_blue = pygame.image.load("p2_b.png")
+
 
 love = pygame.image.load("love.png")
 love = pygame.transform.scale(love,(30,30)) 
@@ -79,11 +79,8 @@ blue_bullet2 = pygame.transform.scale(blue_bullet2,(bx_change,by_change))
 yellow_bullet2 = pygame.transform.scale(yellow_bullet2,(bx_change,by_change))  
 
 p1_red = pygame.transform.scale(p1_red,(bx_change,by_change)) 
-p1_yellow = pygame.transform.scale(p1_yellow,(bx_change,by_change)) 
-p1_blue =pygame.transform.scale(p1_blue,(bx_change,by_change)) 
+
 p2_red = pygame.transform.scale(p2_red,(bx_change,by_change)) 
-p2_yellow = pygame.transform.scale(p2_yellow,(bx_change,by_change)) 
-p2_blue =pygame.transform.scale(p2_blue,(bx_change,by_change)) 
 
 p1win = pygame.image.load("p1win.jpg")
 p2win = pygame.image.load("p2win.jpg")
@@ -95,6 +92,8 @@ startBackground = pygame.image.load('start.jpg')  #一開始的背景
 startBackground = pygame.transform.scale(startBackground,(weight,height))
 instructionBackground = pygame.image.load('instruction.jpg')  #遊戲介紹的背景
 instructionBackground = pygame.transform.scale(instructionBackground,(weight,height))
+resetBackground = pygame.image.load('reset.jpg')  #reset
+resetBackground = pygame.transform.scale(resetBackground,(weight,height))
 
 second = 0
 minute = 0
@@ -137,6 +136,7 @@ class Zombie :
 		self.who = 1
 		self.color = (0,0,0)
 		self.life = 0
+		self.speed = 0
 
 class Bullet:
 	def __init__(self):
