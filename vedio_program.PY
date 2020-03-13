@@ -26,16 +26,16 @@ def game_intro():
 
 		###按鈕###
 
-		into = button("Play",725,300,200,85,green,bright_green,50)
+		into = button("Play",500,250,175,85,green,bright_green,50)
 		if into == 1:
 			main()
-		into = button("Quit",725,600,200,85,pink,bright_pink,50)
+		into = button("Quit",500,550,175,85,pink,bright_pink,50)
 		if into == 1:
 			quitgame()		
-		into = button("Instructions",725,400,200,85,orange,bright_yellow,30)		
+		into = button("Instructions",500,350,175,85,orange,bright_yellow,30)		
 		if into == 1:
 			ins()
-		into = button("Rank",725,500,200,85,dark_blue,blue,50)		
+		into = button("Rank",500,450,175,85,dark_blue,blue,50)		
 		if into == 1:
 			show_board()
 
@@ -55,10 +55,10 @@ def ins():
 				quit()
 					
 		screen.blit(instructionBackground,(0,0))
-		into = button("Back",55,830,200,85,pink,bright_pink,50)
+		into = button("Back",55,550,200,85,pink,bright_pink,50)
 		if into == 1:
 			game_intro()
-		into = button("Start",1345,830,200,85,green,bright_green,50)
+		into = button("Start",900,550,200,85,green,bright_green,50)
 		if into == 1:
 			main()
 		pygame.display.update()
@@ -72,34 +72,34 @@ def quitgame():
 def win(mm,ss,win) :
 	if win == 1:
 		screen.blit(p1win,(0,0))
-		into = button("Again",500,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Again",100,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			main()
-		into = button("Enter",900,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Enter",700,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			enter_name(mm,ss)
 			rank()
-		into = button("Quite",1300,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Quite",1000,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			quitgame()
-		into = button("Reset",100,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Reset",400,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			action()
 			game_intro()
 
 	elif win == 2:
 		screen.blit(p2win,(0,0))
-		into = button("Again",500,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Again",100,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			main()
-		into = button("Enter",900,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Enter",700,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			enter_name(mm,ss)
 			rank()
-		into = button("Quite",1300,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Quite",1000,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			quitgame()
-		into = button("Reset",100,830,200,85,(153,204,204),(204,255,204),50)
+		into = button("Reset",400,550,100,85,(153,204,204),(204,255,204),50)
 		if into == 1:
 			action()
 			game_intro()
@@ -241,7 +241,7 @@ def show_board():
 		name.append(mes[i].split("/"))
 		#minute.append(mes[i].split("/"))
 		#second.append(mes[i].split("/"))
-	message_display(name[0][0].encode('UTF-8'),55,black,(weight/2-250),(heofs/2-200))
+	message_display(name[0][0].encode('UTF-8'),55,black,(weight/2-250),(heofs/2-100))
 	while intro:
 		heofs = height
 		for event in pygame.event.get():
@@ -257,23 +257,23 @@ def show_board():
 			for i in range(0,10):
 				#print(name[i][0])
 				line=name[i][2].strip('\n')
-				message_display(name[i][0].encode('UTF-8'),55,black,400,(heofs/2-200))
-				message_display(name[i][1].encode('UTF-8'),55,black,800,(heofs/2-200))
-				message_display(line.encode('UTF-8'),55,black,1200,(heofs/2-200))
+				message_display(name[i][0].encode('UTF-8'),30,black,200,(heofs/2-100))
+				message_display(name[i][1].encode('UTF-8'),30,black,600,(heofs/2-100))
+				message_display(line.encode('UTF-8'),30,black,1000,(heofs/2-100))
 				heofs+=110
 
 		if (len(mes)<10):
 			for i in range(0,len(mes)):
 				#print(name[i][0])
 				line=name[i][2].strip('\n')
-				message_display(name[i][0].encode('UTF-8'),55,black,400,(heofs/2-200))
-				message_display(name[i][1].encode('UTF-8'),55,black,800,(heofs/2-200))
-				message_display(line.encode('UTF-8'),55,black,1200,(heofs/2-200))
+				message_display(name[i][0].encode('UTF-8'),30,black,400,(heofs/2-100))
+				message_display(name[i][1].encode('UTF-8'),30,black,800,(heofs/2-100))
+				message_display(line.encode('UTF-8'),30,black,1200,(heofs/2-100))
 				heofs+=110
 			#flg=False
 
 
-		into = button("Back",55,830,200,85,pink,bright_pink,50)
+		into = button("Back",30,100,200,85,pink,bright_pink,50)
 		if into == 1:
 			game_intro()
 

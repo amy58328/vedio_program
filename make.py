@@ -56,13 +56,13 @@ def make_zombie(who):
 		zombie.who = 1
 		if cc == 0:
 			zombie.color = red
-			zombie.speed = 3
+			zombie.speed = 2 # 3
 		elif cc == 1:
 			zombie.color = yellow
-			zombie.speed = 3.5
+			zombie.speed = 2.5 # 3.5
 		elif cc == 2:
 			zombie.color = blue
-			zombie.speed = 5
+			zombie.speed = 3.5 # 5
 		zombie.life = 1
 	
 	elif who  == 2:
@@ -72,13 +72,13 @@ def make_zombie(who):
 		zombie.who = 2
 		if cc == 0:
 			zombie.color = red
-			zombie.speed = 3
+			zombie.speed = 2
 		elif cc == 1:
 			zombie.color = yellow
-			zombie.speed = 3.5
+			zombie.speed = 2.5
 		elif cc == 2:
 			zombie.color = blue
-			zombie.speed = 5
+			zombie.speed = 3.5
 		zombie.life = 1
 
 	return zombie

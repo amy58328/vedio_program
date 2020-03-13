@@ -4,8 +4,8 @@ import time
 
 pygame.init()
 
-height = 930 	#改930
-weight = 1600 	#改1600
+height = 650 	#改930
+weight = 1200 	#改1600
 bg = (0,0,0)
 black = (0,0,0)
 pink = (218,112,214)
@@ -13,10 +13,10 @@ bright_pink = (255,130,255)
 dark_blue = (0,130,255)
 
 
-zy_change = 180 #改180
-zx_change = 160 #160
-bx_change = 250 #250
-by_change = 200 # 200
+zy_change = 135 #改180
+zx_change = 120 #160
+bx_change = 187 #250
+by_change = 150 # 200
 player_size = 100 # 200
 red = (255,0,0)
 blue = (0,0,255)
@@ -29,8 +29,6 @@ red_dark = (200,0,0)
 bright_green = (0,255,0)
 bright_yellow = (255,226,0)
 clock_my = 0
-
-# file = open("text.txt","a")
 
 screen = pygame.display.set_mode((weight,height))
 pygame.display.set_caption("Zombie Kolor")
@@ -108,27 +106,6 @@ def message_display(text,size,color,we,he):
 	TextRect.center = ((we),(he))
 	screen.blit(TextSurf, TextRect)
 	
-# def button(msg,x,y,w,h,ic,ac,action=None):
-# 	mouse = pygame.mouse.get_pos()
-# 	click = pygame.mouse.get_pressed()
-# 	print(click)
-# 	if x+w > mouse[0] > x and y+h > mouse[1] > y:
-# 		pygame.draw.rect(screen, ac,(x,y,w,h))
-
-# 		if click[0] == 1 and action != None:
-# 			action()         
-# 	else:
-# 		pygame.draw.rect(screen, ic,(x,y,w,h))
-
-# 	largeText = pygame.font.Font('LucidaBrightDemiBold.ttf',80)
-# 	TextSurf, TextRect = text_objects(msg, largeText)
-# 	TextRect.center = ((x+w/2),(y+h/2))
-# 	screen.blit(TextSurf, TextRect)
-
-
-# def action():
-# 	main()
-
 class Zombie :
 	def __init__(self):
 		self.x = 0

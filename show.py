@@ -21,45 +21,45 @@ def show_player(p1,p2):
 	#pygame.draw.rect(screen,(218,112,214),[weight - bx_change ,0,5,600],0)
 
 	# p1 #########
-	pygame.draw.rect(screen, (200,200,200), [0,800,1600,130],0)
-	pygame.draw.rect(screen,red,[25,820,75,75],0)  #25 620 75 75
-	pygame.draw.rect(screen,yellow,[125,820,75,75],0) #125 620 75 75
-	pygame.draw.rect(screen,blue,[225,820,75,75],0) #225 620 75 75
+	pygame.draw.rect(screen, (200,200,200), [0,550,1600,130],0)
+	pygame.draw.rect(screen,red,[25,565,75,75],0)  #25 620 75 75
+	pygame.draw.rect(screen,yellow,[125,565,75,75],0) #125 620 75 75
+	pygame.draw.rect(screen,blue,[225,565,75,75],0) #225 620 75 75
 
 	n = int(p1.clock_ / 100)
 
 	for i in range(0,n):
-		screen.blit(bullet_show,(330+ i*30,820))
+		screen.blit(bullet_show,(330+ i*30,565))
 
 	if p1.seat == 1:
-		pygame.draw.rect(screen,(255,255,255),[25,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[25,565,75,75],20)
 	elif p1.seat == 2:
-		pygame.draw.rect(screen,(255,255,255),[125,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[125,565,75,75],20)
 	elif p1.seat == 3:
-		pygame.draw.rect(screen,(255,255,255),[225,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[225,565,75,75],20)
 
 	for i in range(0,p1.live):
-			screen.blit(love,(50+i*50,760))
+			screen.blit(love,(50+i*50,535))
 
 	# p2 ################
-	pygame.draw.rect(screen,red,[1300,820,75,75],0)
-	pygame.draw.rect(screen,yellow,[1400,820,75,75],0)
-	pygame.draw.rect(screen,blue,[1500,820,75,75],0)	
+	pygame.draw.rect(screen,red,[900,565,75,75],0)
+	pygame.draw.rect(screen,yellow,[1000,565,75,75],0)
+	pygame.draw.rect(screen,blue,[1100,565,75,75],0)	
 
 	if p2.seat == 3:
-		pygame.draw.rect(screen,(255,255,255),[1500,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[1100,565,75,75],20)
 	elif p2.seat == 2:
-		pygame.draw.rect(screen,(255,255,255),[1400,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[1000,565,75,75],20)
 	elif p2.seat == 1:
-		pygame.draw.rect(screen,(255,255,255),[1300,820,75,75],20)
+		pygame.draw.rect(screen,(255,255,255),[900,565,75,75],20)
 
 	n = int(p2.clock_ / 100)
 
 	for i in range(0,n):
-		screen.blit(bullet_show,(1250 - i*30,820))
+		screen.blit(bullet_show,(850 - i*30,565))
 
 	for i in range(0,p2.live):
-		screen.blit(love,(1520-i*50,760))
+		screen.blit(love,(1150-i*50,535))
 
 def show_zombie(zombie_list,coco,zombie_reduce):
 	if coco % 900  == 0 and coco !=0 :
